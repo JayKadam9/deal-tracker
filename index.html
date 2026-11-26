@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Daily Amazon.in deals that are at least 10% below BuyHatke's historical average, rated 4.0 or higher, grouped by category."
+    />
+    <title>Amazon.in price-drop deals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect rx='8' width='32' height='32' fill='%231c1917'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='16' fill='%23f4efe6'%3E%E2%82%B9%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#deals">Skip to deals</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <div>
+          <p class="eyebrow">Amazon.in · BuyHatke price history</p>
+          <h1>Price-drop deals</h1>
+        </div>
+        <p class="fetched" id="fetched-at">Loading…</p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="intro" aria-labelledby="intro-heading">
+        <h2 id="intro-heading" class="visually-hidden">About this list</h2>
+        <p class="lede">
+          In-stock Amazon.in deals that cost at least ₹1,000, sit at least
+          10% below BuyHatke’s historical average, and are rated 4.0 or
+          higher. Unrated products are left out. The same product appears
+          only once.
+        </p>
+        <p class="note" id="avg-note">
+          The average is BuyHatke’s history average, not a strict 30-day
+          mean. A drop of 80% or more can come from an inflated average
+          rather than a typical selling price.
+        </p>
+        <ul class="metrics" id="metrics"></ul>
+      </section>
+
+      <section class="bars-section" aria-labelledby="bars-heading">
+        <h2 id="bars-heading">Deals by category</h2>
+        <p class="caption">
+          Counts before the filters below. “Other” is the residual group for
+          deals BuyHatke did not place in a named category.
+        </p>
+        <div class="bars" id="bars" role="list"></div>
+      </section>
+
+      <section class="filters" aria-label="Filters" id="filters">
+        <div class="filters-grid">
+          <label class="field">
+            <span>Category</span>
+            <select id="category"></select>
+          </label>
+          <label class="field">
+            <span>Sort</span>
+            <select id="sort">
+              <option value="drop">% below (high to low)</option>
+              <option value="priceLow">Price (low to high)</option>
+              <option value="priceHigh">Price (high to low)</option>
+              <option value="rating">Rating (high to low)</option>
+              <option value="reviews">Reviews (high to low)</option>
+            </select>
+          </label>
+          <label class="field field-search">
+            <span>Search</span>
+            <input
+              id="search"
+              type="search"
+              placeholder="Product, brand, or subcategory"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+        <div class="filters-row">
+          <label class="toggle">
+            <input type="checkbox" id="hide-few" />
+            <span>Hide items with fewer than 20 reviews</span>
+          </label>
+          <button type="button" class="reset" id="reset">Reset filters</button>
+        </div>
+        <p class="status" id="status" aria-live="polite"></p>
+      </section>
+
+      <div id="error" class="error" hidden></div>
+      <div id="deals"></div>
+    </main>
+
+    <button type="button" class="to-top" id="to-top" hidden>
+      Back to top
+    </button>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Prices and averages come from BuyHatke’s public Amazon.in deals
+          feed. Product links go to Amazon.in. This is an independent
+          tracker, not affiliated with Amazon or BuyHatke.
+        </p>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
