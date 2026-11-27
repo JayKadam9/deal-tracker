@@ -47,11 +47,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
-IST = ZoneInfo("Asia/Calcutta")
+IST = timezone(timedelta(hours=5, minutes=30), "IST")  # fixed offset; GitHub runners lack tzdata
 UA = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
